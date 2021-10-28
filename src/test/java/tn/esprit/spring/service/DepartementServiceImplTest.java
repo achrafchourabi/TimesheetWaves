@@ -26,38 +26,38 @@ public class DepartementServiceImplTest {
 	
 	
 	@Test
-	public void testAddDepartement() throws ParseException {
+	public void A_testAddDepartement() throws ParseException {
 		
-		Departement d = new Departement("haiaf"); 
+		Departement d = new Departement("e5er teest"); 
 		Departement DepartementAdded = dp.addDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementAdded.getName());
 	}
 	
 	@Test
-	public void testRetrieveAllDepartement() {
+	public void B_testRetrieveAllDepartement() {
 		List<Departement> listDepartements = dp.retrieveAllDepartement(); 
 		// if there are 7 users in DB : 
-		Assert.assertEquals(11, listDepartements.size());
+		Assert.assertEquals(10, listDepartements.size());
 	}
 	
  
 	@Test
-	public void testModifyDepartement() throws ParseException   {
-		Departement d = new Departement(12,"dep info"); 
+	public void C_testModifyDepartement() throws ParseException   {
+		Departement d = new Departement(31,"hello e5er e5er e5er"); 
 		Departement DepartementUpdated = dp.updateDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementUpdated.getName());
 	}
 
 	@Test
-	public void testRetrieveDepartement() {
+	public void AB_testRetrieveDepartement() {
 		Departement departementRetrieved = dp.retrieveDepartement(7); 
 		Assert.assertEquals(7, departementRetrieved.getId());
 	}
 	
 	@Test
-	public void testDeleteDepartement() {
-		dp.deleteDepartement(12);
-		Assert.assertNull(dp.retrieveDepartement(12));
+	public void D_testDeleteDepartement() {
+		dp.deleteDepartement(32);
+		Assert.assertNull(dp.retrieveDepartement(32));
 	}
 	
 	// 5 tests unitaires  

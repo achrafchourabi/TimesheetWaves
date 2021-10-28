@@ -17,12 +17,12 @@ pipeline {
                 bat "mvn clean install -DskipTests"
             }
         }
-        
+       stage("Sonar") {
+        steps {
+           bat "mvn sonar:sonar"
+         }
+       } 
     }
-      //  stage("Sonar") {
-//            steps {
-        //        bat "mvn sonar:sonar"
-         ///   }
-    //    }
+       
     
 }
