@@ -43,8 +43,8 @@ public class DepartementServiceImpl implements IDepartementService {
 	}
 
 	@Override
-	public void deleteDepartement(String id) {
-		departementRepository.deleteById(Long.parseLong(id));
+	public void deleteDepartement(int id) {
+		departementRepository.deleteById(id);
 		
 	}
 
@@ -54,11 +54,11 @@ public class DepartementServiceImpl implements IDepartementService {
 	}
 
 	@Override
-	public Departement retrieveDepartement(String id) {
+	public Departement retrieveDepartement(int id) {
 		l.info("in  retrieveDepartement id = " + id);
-		//Departement d =  departementRepository.findById(Long.parseLong(id)).orElse(null);
+		Departement d =  departementRepository.findById(id).orElse(null);
 		//int i = 1/0; 
-		Departement d =  departementRepository.findById(Long.parseLong(id)).get(); 
+		//Departement d =   departementRepository.findById(Long.parseLong(id)).orElse(null);
 		l.info("departement returned : " + d);
 		return d; 
 	}

@@ -46,6 +46,7 @@ public class Departement implements Serializable {
 		this.name = name;
 	}
 	
+	
 	public int getId() {
 		return id;
 	}
@@ -84,6 +85,11 @@ public class Departement implements Serializable {
 
 	public void setEntreprise(Entreprise entreprise) {
 		this.entreprise = entreprise;
+	}
+
+	public Departement(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 	
 	
