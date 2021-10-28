@@ -61,6 +61,6 @@ public class DepartementServiceImplTest {
 	}
 	
 	// 5 tests unitaires  
-	//nbaadel ken fel delete w modif khaw incrimenti b 1
+
 	
 }
