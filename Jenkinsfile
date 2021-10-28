@@ -19,10 +19,10 @@ pipeline {
         }
         
     }
-      //  stage("Sonar") {
-//            steps {
-        //        bat "mvn sonar:sonar"
-         ///   }
-    //    }
+        stage("Sonar") {
+           steps {
+               bat "mvn sonar:sonar"
+            }
+        }
     
 }

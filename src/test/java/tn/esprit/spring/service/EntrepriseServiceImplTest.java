@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Entreprise;
-
+import tn.esprit.spring.repository.EntrepriseRepository;
 import tn.esprit.spring.services.IEntrepriseService;
 
 
@@ -23,39 +25,47 @@ public class EntrepriseServiceImplTest {
 	
 	@Autowired
 	IEntrepriseService entrep; 
+	
 
-	@Test
-	public void testRetrieveAllEntreprises() {
-		List<Entreprise> listEntreprises = entrep.retrieveAllEntreprises(); 
-		// if there are 7 users in DB : 
-		Assert.assertEquals(6, listEntreprises.size());
-	}
-	
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceImplTest.class); 
 	
 	@Test
-	public void testAddEntreprise() throws ParseException {
+	public void A_testAddEntreprise() throws ParseException {
 		Entreprise e = new Entreprise("Esprit", "Education"); 
 		Entreprise entrepriseAdded = entrep.addEntreprise(e); 
 		Assert.assertEquals(e.getName(), entrepriseAdded.getName());
-	}
- 
-	@Test
-	public void testModifyEntreprise() throws ParseException   {
-		Entreprise e = new Entreprise ("EspritBusiness", "Ingénieurie"); 
-		Entreprise entrepriseUpdated  = entrep.updateEntreprise(e); 
-		Assert.assertEquals(e.getName(), entrepriseUpdated.getName());
-	}
-
-	@Test
-	public void testRetrieveEntreprise() {
-		Entreprise entrepriseRetrieved = entrep.retrieveEntreprise("1"); 
-		Assert.assertEquals(1L, entrepriseRetrieved.getId());
+		l.info(" Entreprise ajoutée avec succès");
 	}
 	
 	@Test
-	public void testDeleteEntreprise() {
-		entrep.deleteEntreprise("5");
-		Assert.assertNull(entrep.retrieveEntreprise("5"));
+	public void B_testRetrieveAllEntreprises() {
+		List<Entreprise> listEntreprises = entrep.retrieveAllEntreprises(); 
+		// if there are 7 users in DB : 
+		Assert.assertEquals(14, listEntreprises.size());
+	}
+	
+ 
+	@Test
+	public void C_testModifyEntreprise() throws ParseException   {
+		Entreprise e = new Entreprise (35,"EspritBusiness", "Ingénieurie"); 
+		Entreprise entrepriseUpdated  = entrep.updateEntreprise(e); 
+		Assert.assertEquals(e.getName(), entrepriseUpdated.getName());
+		l.info(" Entreprise modifiée avec succès");
+	}
+
+	@Test
+	public void AB_testRetrieveEntreprise() {
+		Entreprise entrepriseRetrieved = entrep.retrieveEntreprise(6); 
+		Assert.assertEquals(6, entrepriseRetrieved.getId());
+		l.info("retrieve Entreprise : "+ entrep);
+	}
+	
+	
+	@Test
+	public void D_testDeleteEntreprise() {
+		entrep.deleteEntreprise(41);
+		Assert.assertNull(entrep.retrieveEntreprise(41));
+		l.info(" Entreprise supprimée avec succès");
 	}
 	
 	// 5 tests unitaires  

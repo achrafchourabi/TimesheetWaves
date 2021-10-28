@@ -43,8 +43,8 @@ public class EntrepriseServiceImpl implements IEntrepriseService{
 	}
 
 	@Override
-	public void deleteEntreprise(String id) {
-		entrepriseRepository.deleteById(Long.parseLong(id));
+	public void deleteEntreprise(int id) {
+		entrepriseRepository.deleteById(id);
 		
 	}
 
@@ -54,9 +54,9 @@ public class EntrepriseServiceImpl implements IEntrepriseService{
 	}
 
 	@Override
-	public Entreprise retrieveEntreprise(String id) {
+	public Entreprise retrieveEntreprise(int id) {
 		l.info("in  retrieveEntreprise id = " + id);
-		Entreprise e =  entrepriseRepository.findById(Long.parseLong(id)).orElse(null); 
+		Entreprise e =  entrepriseRepository.findById(id).orElse(null); 
 		l.info("Entreprise returned : " + e);
 		return e; 
 	}
