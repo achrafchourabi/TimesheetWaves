@@ -24,18 +24,20 @@ pipeline {
        }
      stage('uploading to nexus'){
                  steps{
-                     nexusArtifactUploader artifacts: [
-                        [artifactId: 'timesheet-ci',
-                        classifier: '', 
-                        file: 'target/timesheet-ci-2.0.jar', 
-                        type: 'jar']], credentialsId: 'nexus-user-credentials', groupId: 'tn.esprit.spring', 
-                        nexusUrl: 'localhost:8081', 
-                        nexusVersion: 'nexus3', 
-                        protocol: 'http', 
-                        repository: 'maven-releases', 
-                        version: '2.0'
-                 }
-             } 
+                     nexusArtifactUploader(
+    			nexusVersion: 'nexus3',
+   			 protocol: 'http',
+   			 nexusUrl: 'localhost:8081',
+   			 groupId: 'tn.esprit.spring',
+   			 version: 2.0,
+   			 repository: 'maven-releases',
+    			 credentialsId: 'nexus-user-credentials',
+    			 artifacts: [
+      		             [artifactId: 'timesheet-ci',
+        		      classifier: '',
+         		     file: 'target/timesheet-' + version + '.jar',
+         	             type: 'jar']
+    ]
     }
        
     
