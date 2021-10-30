@@ -38,7 +38,8 @@ pipeline {
          		     file: 'target/timesheet-' + version + '.jar',
          	             type: 'jar']
     ]
-    }
+    }}
+
        }
     
 }
