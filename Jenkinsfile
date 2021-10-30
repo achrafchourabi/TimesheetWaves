@@ -26,7 +26,12 @@ pipeline {
         steps {
            bat "mvn deploy -Dmaven.test.skip"
          }
-       } 
+       }
+       post {
+            success {
+               jacoco()
+               junit '**/target/surefire-reports/TEST-*.xml'
+            } 
        
     
    }   
