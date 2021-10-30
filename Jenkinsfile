@@ -29,5 +29,5 @@ pipeline {
             Jenkins.''', cc: '', from: '', replyTo: '', subject: 'Build succed', to: 'haifa.ghabri@esprit.tn'
           }	
        }
-    
+    }
 }
