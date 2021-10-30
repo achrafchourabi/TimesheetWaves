@@ -34,7 +34,7 @@ stage('Email Notifications'){
                  mail bcc: '', body: '''Hello , 
                 A Build has been executed on Your Project Timesheet , if you notice any bugs or abnormal behaviour please contact your team leader
                 Best Regards , 
-                Bouhmid''', 
+                Ghabri Haifa''', 
                 cc: '', from: '', replyTo: '', subject: 'A Build was executed on timesheet', to: 'haifa.ghabri@esprit.tn'
              
                  }
