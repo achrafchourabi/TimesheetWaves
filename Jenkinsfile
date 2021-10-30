@@ -28,11 +28,12 @@ pipeline {
            bat "mvn deploy -Dmaven.test.skip"
          }
        }
+       stage("mail sending") {
+        steps {
+            emailext body: 'pipeline terminé avec succès !!!!! ', subject: 'pipeline ', to: 'ghofrane043@gmail.com'
+         }
+       }
        
    }  
-   post {
-        always {
-            emailext body: 'pipeline terminé avec succès !!!!! ', subject: 'pipeline ', to: 'ghofrane043@gmail.com'
-        }
-    } 
+   
 }
