@@ -22,25 +22,16 @@ pipeline {
            bat "mvn sonar:sonar"
          }
        }
-     stage('uploading to nexus'){
-                 steps{
-                     nexusArtifactUploader(
-    			nexusVersion: 'nexus3',
-   			 protocol: 'http',
-   			 nexusUrl: 'localhost:8081',
-   			 groupId: 'tn.esprit.spring',
-   			 version: '2.0',
-   			 repository: 'maven-releases',
-    			 credentialsId: 'nexus-user-credentials',
-    			 artifacts: [
-      		             [artifactId: 'timesheet-ci',
-        		      classifier: '',
-         		     file: 'target/timesheet-ci-2.0.jar',
-         	             type: 'jar']
-    ])
-    }}
-
+   
+      stage("mvn deploy") {
+            steps {
+                script {
+                    // If you are using Windows then you should use "bat" step
+                    // Since unit testing is out of the scope we skip them
+                    bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=2.0 -DgeneratePom=true -Dpackaging=jar  -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-2.0.jar"
+                }
+            }
+        }	
        }
     
 }
-
