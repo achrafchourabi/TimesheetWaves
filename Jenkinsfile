@@ -33,7 +33,6 @@ pipeline {
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'maven-releases', 
-			repositoryId:'deploymentRepo',
                         version: '2.0'
                  }
              } 
