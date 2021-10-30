@@ -14,7 +14,7 @@ pipeline {
       	 stage("Build") {
             steps {
                 bat "mvn -version"
-                bat "mvn clean install -DskipTests"
+                bat "mvn clean install "
             }
         }
 
@@ -26,6 +26,16 @@ pipeline {
         }
         
     }
+
+    stage("Nexus") {
+            steps {
+                script {
+                    // If you are using Windows then you should use "bat" step
+                    // Since unit testing is out of the scope we skip them
+                    bat "mvn deploy"
+                }
+            }
+        }
         
     
 }
