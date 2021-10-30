@@ -7,8 +7,7 @@ pipeline {
     //   stage ('GIT') {
      //       steps {
       //         echo "Getting Project from Git"; 
-       //        git branch:"ghofrane",
-                 url : "https://github.com/achrafchourabi/TimesheetWaves.git"; 
+       //        git branch:"ghofrane", url:"https://github.com/achrafchourabi/TimesheetWaves.git"; 
        //     }
         //}
 
