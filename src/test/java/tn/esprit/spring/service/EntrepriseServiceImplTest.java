@@ -41,7 +41,7 @@ public class EntrepriseServiceImplTest {
 	public void B_testRetrieveAllEntreprises() {
 		List<Entreprise> listEntreprises = entrep.retrieveAllEntreprises(); 
 		// if there are 7 users in DB : 
-		Assert.assertEquals(14, listEntreprises.size());
+		Assert.assertEquals(13, listEntreprises.size());
 	}
 	
  
@@ -63,8 +63,8 @@ public class EntrepriseServiceImplTest {
 	
 	@Test
 	public void D_testDeleteEntreprise() {
-		entrep.deleteEntreprise(46);
-		Assert.assertNull(entrep.retrieveEntreprise(46));
+		entrep.deleteEntreprise(48);
+		Assert.assertNull(entrep.retrieveEntreprise(48));
 		l.info(" Entreprise supprimée avec succès");
 	}
 	
