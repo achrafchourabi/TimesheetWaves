@@ -17,11 +17,11 @@ pipeline {
                 bat "mvn clean install"
             }
         }
-	stage ("Lancement des Tests Unitaires"){
-			steps{
-				bat "mvn test"
-			}
-		}
+	//stage ("Lancement des Tests Unitaires"){
+			//steps{
+		//		bat "mvn test"
+			//}
+		//}
 	stage('Jacoco Build'){
 			steps{
 				step([$class: 'JacocoPublisher', 

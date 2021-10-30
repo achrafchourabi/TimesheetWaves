@@ -43,7 +43,7 @@ public class DepartementServiceImplTest {
  
 	@Test
 	public void C_testModifyDepartement() throws ParseException   {
-		Departement d = new Departement(27,"haifa ghabri"); 
+		Departement d = new Departement(31,"haifa ghabri"); 
 		Departement DepartementUpdated = dp.updateDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementUpdated.getName());
 	}
@@ -56,8 +56,8 @@ public class DepartementServiceImplTest {
 	
 	@Test
 	public void D_testDeleteDepartement() {
-		dp.deleteDepartement(42);
-		Assert.assertNull(dp.retrieveDepartement(42));
+		dp.deleteDepartement(44);
+		Assert.assertNull(dp.retrieveDepartement(44));
 	}
 	
 	// 5 tests unitaires  
