@@ -47,7 +47,7 @@ public class EntrepriseServiceImplTest {
  
 	@Test
 	public void C_testModifyEntreprise() throws ParseException   {
-		Entreprise e = new Entreprise (35,"EspritBusiness", "Ingénieurie"); 
+		Entreprise e = new Entreprise (3,"EspritBusiness", "Ingénieurie"); 
 		Entreprise entrepriseUpdated  = entrep.updateEntreprise(e); 
 		Assert.assertEquals(e.getName(), entrepriseUpdated.getName());
 		l.info(" Entreprise modifiée avec succès");
@@ -63,8 +63,8 @@ public class EntrepriseServiceImplTest {
 	
 	@Test
 	public void D_testDeleteEntreprise() {
-		entrep.deleteEntreprise(41);
-		Assert.assertNull(entrep.retrieveEntreprise(41));
+		entrep.deleteEntreprise(43);
+		Assert.assertNull(entrep.retrieveEntreprise(43));
 		l.info(" Entreprise supprimée avec succès");
 	}
 	

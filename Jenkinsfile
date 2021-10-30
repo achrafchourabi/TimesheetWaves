@@ -14,10 +14,21 @@ pipeline {
       	 stage("Build") {
             steps {
                 bat "mvn -version"
-                bat "mvn clean install -DskipTests"
+                bat "mvn clean install "
             }
         }
 
+
+    stage('Jacoco Build'){
+      steps{
+        step([$class: 'JacocoPublisher', 
+                execPattern: 'target/*.exec',
+                classPattern: 'target/classes',
+                sourcePattern: 'src/main/java',
+                exclusionPattern: 'src/test*'
+        ])
+      }
+    }
 	
 	 stage("Sonar") {
            	steps {
@@ -27,7 +38,7 @@ pipeline {
         
     stage("Nexus") {
             steps {
-                   bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=4.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-4.0.jar"
+                   bat "mvn clean package deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=4.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-4.0.jar"
                  }
             
         }
