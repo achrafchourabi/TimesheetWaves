@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>tn.esprit</groupId>
 	<artifactId>springBootProj</artifactId>
-	<version>1.0</version>
+	<version>4.0</version>
 	<name>springBootProj</name>
 	<description>springBootProj</description>
 	<properties>
@@ -86,5 +86,10 @@
 			</plugin>
 		</plugins>
 	</build>
-
+  <distributionManagement>
+  <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
 </project>

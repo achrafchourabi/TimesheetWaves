@@ -21,7 +21,13 @@ pipeline {
         steps {
            bat "mvn sonar:sonar"
          }
+       }
+       stage("nexus") {
+        steps {
+           bat "mvn deploy"
+         }
        } 
+       
     }
        
     
