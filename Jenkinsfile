@@ -29,7 +29,10 @@ pipeline {
          }
        }
        
-       
-    
-   }   
+   }  
+   post {
+        always {
+            emailext body: 'pipeline terminé avec succès !!!!! ', subject: 'pipeline ', to: 'ghofrane043@gmail.com'
+        }
+    } 
 }
