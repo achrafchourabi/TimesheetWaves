@@ -28,7 +28,7 @@ public class DepartementServiceImplTest {
 	@Test
 	public void A_testAddDepartement() throws ParseException {
 		
-		Departement d = new Departement("e5er teest unitaire"); 
+		Departement d = new Departement("test avec jenkins"); 
 		Departement DepartementAdded = dp.addDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementAdded.getName());
 	}
@@ -43,7 +43,7 @@ public class DepartementServiceImplTest {
  
 	@Test
 	public void C_testModifyDepartement() throws ParseException   {
-		Departement d = new Departement(31,"hello e5er haifa"); 
+		Departement d = new Departement(27,"haifa ghabri"); 
 		Departement DepartementUpdated = dp.updateDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementUpdated.getName());
 	}
@@ -56,8 +56,8 @@ public class DepartementServiceImplTest {
 	
 	@Test
 	public void D_testDeleteDepartement() {
-		dp.deleteDepartement(34);
-		Assert.assertNull(dp.retrieveDepartement(34));
+		dp.deleteDepartement(35);
+		Assert.assertNull(dp.retrieveDepartement(35));
 	}
 	
 	// 5 tests unitaires  
