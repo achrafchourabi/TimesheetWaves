@@ -22,6 +22,16 @@ pipeline {
 				bat "mvn test"
 			}
 		}
+	stage('Jacoco Build'){
+			steps{
+				step([$class: 'JacocoPublisher', 
+      					execPattern: 'target/*.exec',
+      					classPattern: 'target/classes',
+      					sourcePattern: 'src/main/java',
+      					exclusionPattern: 'src/test*'
+				])
+			}
+		}
        stage("Sonar") {
         steps {
            bat "mvn sonar:sonar"
