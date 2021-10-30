@@ -4,12 +4,12 @@ pipeline {
 
 
     stages {
-    //   stage ('GIT') {
-     //       steps {
-      //         echo "Getting Project from Git"; 
-       //        git branch:"ghofrane", url:"https://github.com/achrafchourabi/TimesheetWaves.git"; 
-       //     }
-        //}
+       stage ('GIT') {
+            steps {
+               echo "Getting Project from Git"; 
+               git branch:"ghofrane", url:"https://github.com/achrafchourabi/TimesheetWaves.git"; 
+            }
+        }
 
        stage("Build") {
            steps {
@@ -28,7 +28,7 @@ pipeline {
          }
        } 
        
-    }
+    
        
     
 }
