@@ -24,7 +24,7 @@ pipeline {
        }
        stage("nexus") {
         steps {
-           bat "mvn deploy"
+           bat "mvn deploy -Dmaven.test.skip"
          }
        } 
        
