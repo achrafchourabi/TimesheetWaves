@@ -22,13 +22,13 @@ pipeline {
            bat "mvn sonar:sonar"
          }
        }
-   	stage("Deploy") {
-     	 steps{
+   	//stage("Deploy") {
+     //	 steps{
               // If you are using Windows then you should use "bat" step
               // Since unit testing is out of the scope we skip them
-      bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=2.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-2.0.jar"
-                }
-            }
+    //  bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=2.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-2.0.jar"
+     //           }
+          //  }
 stage('Email Notifications'){
                  steps{
                  mail bcc: '', body: '''Hello , 
