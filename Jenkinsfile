@@ -30,7 +30,7 @@ pipeline {
        }
        stage("mail sending") {
         steps {
-            emailext body: 'pipeline terminé avec succès !!!!! ', subject: 'pipeline ', to: 'ghofrane043@gmail.com'
+            mail bcc: '', body: 'pipeline terminé avec succès !!!!! ', subject: 'pipeline ', to: 'ghofrane043@gmail.com'
          }
        }
        
