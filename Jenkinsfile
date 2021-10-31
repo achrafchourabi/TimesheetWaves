@@ -2,6 +2,11 @@ pipeline {
 
     agent any
 
+    triggers {
+
+      cron('* * * * *')
+
+    }
 
     stages {
     //   stage ('GIT') {
@@ -38,7 +43,7 @@ pipeline {
         
     stage("Nexus") {
             steps {
-                   bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=5.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-5.0.jar"
+                   bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=6.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-6.0.jar"
                  }
             
         }
