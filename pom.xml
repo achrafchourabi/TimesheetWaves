@@ -25,7 +25,7 @@
     <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.language>java</sonar.language>
 	</properties>
-
+  <!-- JaCoCo Properties -->
 	<dependencies>
 <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -39,12 +39,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		  <!-- JaCoCo dependency -->
    <dependency>
      <groupId>org.jacoco</groupId> 
     <artifactId>jacoco-maven-plugin</artifactId>
     <version>0.8.6</version>
     		</dependency>
-
+  <!-- JaCoCo dependency -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -78,7 +79,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+			  <!-- JaCoCo plugin -->
 			<plugin>
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>
@@ -99,6 +100,7 @@
         </execution>
     </executions>
 </plugin>
+	  <!-- JaCoCo plugin -->
 		</plugins>
 	</build>
 
