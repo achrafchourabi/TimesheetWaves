@@ -2,12 +2,12 @@ pipeline {
 
     agent any
 
-  /*  triggers {
+    triggers {
 
-      cron('* * * * *')
+      cron('*/5 * * * *')
 
     }
-*/
+
     stages {
     //   stage ('GIT') {
      //       steps {
