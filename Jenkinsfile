@@ -1,11 +1,11 @@
 pipeline {
 
     agent any
-  /*  triggers {
+  //  triggers {
 
-      cron('*/5 * * * *')
+//      cron('*/5 * * * *')
 
-    }*/
+//    } 
 
     stages {
     //   stage ('GIT') {
@@ -48,7 +48,7 @@ pipeline {
       bat "mvn clean package -Dmaven.test.skip=true -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=4.3 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-4.3.jar"
                 }
             }
-stage('Email Notifications'){
+	stage('Email Notifications'){
                  steps{
                  mail bcc: '', body: '''Hello , 
                 A Build has been executed on Your Project Timesheet , if you notice any bugs or abnormal behaviour please contact your team leader
