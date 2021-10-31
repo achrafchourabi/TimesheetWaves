@@ -7,6 +7,9 @@ pipeline {
         registryCredential ='docker'
         dockerImage = ''
     }
+triggers {
+cron ( ' * * * * * ')
+}
     stages {
 
         stage("clone repo") {
