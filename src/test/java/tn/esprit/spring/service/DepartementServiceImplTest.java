@@ -43,7 +43,7 @@ public class DepartementServiceImplTest {
  
 	@Test
 	public void C_testModifyDepartement() throws ParseException   {
-		Departement d = new Departement(33,"automatique build"); 
+		Departement d = new Departement(33,"automatique builddd"); 
 		Departement DepartementUpdated = dp.updateDepartement(d); 
 		Assert.assertEquals(d.getName(), DepartementUpdated.getName());
 	}
@@ -56,8 +56,8 @@ public class DepartementServiceImplTest {
 	
 	@Test
 	public void D_testDeleteDepartement() {
-		dp.deleteDepartement(35);
-		Assert.assertNull(dp.retrieveDepartement(35));
+		dp.deleteDepartement(36);
+		Assert.assertNull(dp.retrieveDepartement(36));
 	}
 	
 	// 5 tests unitaires  
