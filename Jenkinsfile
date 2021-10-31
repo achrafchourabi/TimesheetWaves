@@ -1,64 +1,90 @@
 pipeline {
 
-    agent any
+      agent any
 
-   // triggers {
+//    triggers {
 
-      //cron('*/5 * * * *')
+//        cron('*/5 * * * *')
 
-    //}
+//            }
 
-    stages {
-    //   stage ('GIT') {
-     //       steps {
-      //         echo "Getting Project from Git"; 
-       //        git branch:"tesnimeammar", url : "https://github.com/achrafchourabi/TimesheetWaves.git"; 
-       //     }
-        //}
+      stages {
 
-      	 stage("Build") {
+ //   stage ('GIT') {
+//       steps {
+//         echo "Getting Project from Git"; 
+//        git branch:"tesnimeammar", url : "https://github.com/achrafchourabi/TimesheetWaves.git"; 
+//     }
+//}
+
+        stage("Vérification de la verison du Maven") {
             steps {
-                bat "mvn -version"
-                bat "mvn clean install "
-            }
+
+                  bat "mvn -version"
+
+                  }
+        }
+
+        stage("Supprimer du target ") {
+            steps {
+      
+                bat "mvn clean"
+
+                  }
+        }
+
+        stage("Build") {
+            steps {
+
+                bat "mvn package -DskipTests=true"
+
+                  }
+        }
+
+        stage("Lancement des tests unitaires ") {
+            steps {
+
+                bat "mvn test"
+                  }
         }
 
 
-    stage('Jacoco Build'){
-      steps{
-        step([$class: 'JacocoPublisher', 
-                execPattern: 'target/*.exec',
-                classPattern: 'target/classes',
-                sourcePattern: 'src/main/java',
-                exclusionPattern: 'src/test*'
-        ])
+        stage('Jacoco Build'){
+          steps{
+            step([$class: 'JacocoPublisher', 
+            execPattern: 'target/*.exec',
+            classPattern: 'target/classes',
+            sourcePattern: 'src/main/java',
+            exclusionPattern: 'src/test*'
+            ])
+          }
+        }
+
+        stage("Sonar") {
+          steps {
+
+            bat "mvn sonar:sonar"
+                }
+        }
+
+        stage("Deploiement avec Nexus") {
+          steps {
+            bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=9.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-9.0.jar"
+                }
+
+        }       
+
+
+
       }
-    }
-	
-	 stage("Sonar") {
-           	steps {
-            	   bat "mvn sonar:sonar"
-            }
-        }
-        
-    stage("Nexus") {
-            steps {
-                   bat "mvn clean package -Dmaven.test.skip=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=8.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-8.0.jar"
-                 }
-            
-        }
 
-
-
-    }
-
-    post {
-        always {
+      post {
+          always {
             mail bcc: '', 
             body: '''Build completed successfully''', cc: '', from: '', replyTo: '', subject: 'Build successfull', to: 'tesnime.ammar@esprit.tn'
+          }
         }
-    }
-    
-        
-    
+
+
+
 }
