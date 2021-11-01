@@ -28,34 +28,34 @@ public class UserServiceImplTest {
 
 	
 
-//	@Test
-//	public void testAddUSer() throws ParseException {
-//
-//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//		Date date = dateFormat.parse("2015-03-23");
-//		User u = new User(0, "Achraf", "Chourabi", date, Role.ingenieur);
-//		assertTrue(u.getRole().equals(Role.ingenieur));
-//		us.addUser(u);
-//	}
+	@Test
+	public void testAddUSer() throws ParseException {
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = dateFormat.parse("2015-03-23");
+		User u = new User(0, "Achraf", "Chourabi", date, Role.ingenieur);
+		assertTrue(u.getRole().equals(Role.ingenieur));
+		us.addUser(u);
+	}
 	
-//	@Test
-//	public void testRetrieveUser() {
-//		User user = us.retrieveUser("6");
-//		assertNotNull(user.getDateNaissance());
-//		log.info("retrieveUser : " + user);
-//	}
-//	
-//	@Test
-//	public void testDeleteUser() {
-//		us.deleteUser("7");
-//		
-//	}
-//	@Test
-//	public void testRetrieveAllUser() {
-//		List<User> users = us.retrieveAllUsers();
-//		log.info("retrieve all users" + users);
-//		
-//	}
+	@Test
+	public void testRetrieveUser() {
+		User user = us.retrieveUser("6");
+		assertNotNull(user.getDateNaissance());
+		log.info("retrieveUser : " + user);
+	}
+	
+	@Test
+	public void testDeleteUser() {
+		us.deleteUser("10");
+		
+	}
+	@Test
+	public void testRetrieveAllUser() {
+		List<User> users = us.retrieveAllUsers();
+		log.info("retrieve all users" + users);
+		
+	}
 	@Test
 	public void testUpdateUSer() throws ParseException {
 
