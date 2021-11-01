@@ -1,0 +1,45 @@
+pipeline {
+
+    agent any
+
+
+    stages {
+       stage ('GIT') {
+            steps {
+               echo "Getting Project from Git"; 
+                git branch: "master", 
+                    url: "https://github.com/achrafchourabi/TimesheetWaves.git";
+                    //credentialsId: "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"; 
+            }
+        }
+
+        stage("Build") {
+            steps {
+                bat "mvn -version"
+                bat "mvn clean package"
+                // sh "mvn clean package -DskipTests" pour une machine linux
+            }
+        }
+        
+        stage("Sonar") {
+            steps {
+                bat "mvn sonar:sonar"
+            }
+        }
+        
+        stage("DEPLOY") {
+            steps {
+                //bat "mvn deploy -DskipTests"
+                bat "mvn clean package deploy:deploy-file -DgroupId=tn.esprit -DartifactId=springBootProj -Dversion=1.3 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/springBootProj-1.0.jar"
+
+            }
+        }
+    }
+   
+    post {
+        always {
+            cleanWs()
+        }
+    }
+    
+}
