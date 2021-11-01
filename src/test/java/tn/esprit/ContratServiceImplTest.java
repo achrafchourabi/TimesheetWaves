@@ -26,7 +26,7 @@ public class ContratServiceImplTest {
 	@Autowired
 	ContratService ct;
 	private static final Logger log = LogManager.getLogger(ContratServiceImplTest.class);
-//test21
+//test21ff
 	
 
 	@Test
