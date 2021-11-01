@@ -63,8 +63,8 @@ public class EntrepriseServiceImplTest {
 	
 	@Test
 	public void D_testDeleteEntreprise() {
-		entrep.deleteEntreprise(78);
-		Assert.assertNull(entrep.retrieveEntreprise(78));
+		entrep.deleteEntreprise(79);
+		Assert.assertNull(entrep.retrieveEntreprise(79));
 		l.info(" Entreprise supprimée avec succès");
 	}
 	

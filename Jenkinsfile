@@ -17,7 +17,7 @@ pipeline {
 //     }
 //}
 
-        stage("Vérification de la verison du Maven") {
+        stage("Verification de la verison du Maven") {
             steps {
 
                   bat "mvn -version"
@@ -25,7 +25,7 @@ pipeline {
                   }
         }
 
-        stage("Supprimer du target ") {
+        stage("Supprimer le target ") {
             steps {
       
                 bat "mvn clean"
@@ -69,7 +69,7 @@ pipeline {
 
         stage("Deploiement avec Nexus") {
           steps {
-            bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=9.2 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-9.2.jar"
+            bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=9.3 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-9.3.jar"
                 }
 
         }       
