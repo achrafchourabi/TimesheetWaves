@@ -45,11 +45,12 @@ public class UserServiceImplTest {
 		log.info("retrieveUser : " + user);
 	}
 	
-//	@Test
-//	public void testDeleteUser() {
-//		us.deleteUser("7");
-//		
-//	}
+	@Test
+	public void testDeleteUser() {
+		if(us.retrieveUser("7")!=null)
+		us.deleteUser("7");
+		
+	}
 	@Test
 	public void testRetrieveAllUser() {
 		List<User> users = us.retrieveAllUsers();
