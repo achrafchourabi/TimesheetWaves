@@ -30,7 +30,7 @@ pipeline {
         stage("DEPLOY") {
             steps {
                 //bat "mvn deploy -DskipTests"
-                bat "mvn clean package deploy:deploy-file -DgroupId=tn.esprit -DartifactId=springBootProj -Dversion=1.8 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/springBootProj-1.0.jar"
+                bat "mvn clean package deploy:deploy-file -DgroupId=tn.esprit -DartifactId=springBootProj -Dversion=1.9 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/springBootProj-1.0.jar"
 
             }
         }
