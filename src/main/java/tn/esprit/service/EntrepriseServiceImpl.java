@@ -48,8 +48,9 @@ EntrepriseRepository entrepriseRepository;
 	@Override
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
 	//	Departement Dep = departementRepository.findById((long)depId).get();
-		Entreprise en =  entrepriseRepository.findById((long)entrepriseId).get() ;
+		Entreprise en =  entrepriseRepository.findById((long)entrepriseId).orElse(null) ;
 		List<String> departements = new ArrayList<>() ;
+		if(en!=null)
 		for (Departement d : en.getDepartements() )
 		{
 		departements.add(d.getName()) ;

@@ -50,9 +50,9 @@ DepartementRepository departementRepository ;
 
 	@Override
 	public void affecterEmployeADepartement(int employeId, int depId) {
-		Departement dep = departementRepository.findById((long)depId).get();
-		Employe e =  employeRepository.findById((long)employeId).get() ;
-		
+		Departement dep = departementRepository.findById((long)depId).orElse(null);
+		Employe e =  employeRepository.findById((long)employeId).orElse(null) ;
+		if(dep!=null)
 		dep.getEmployees().add(e);
 		departementRepository.save(dep) ;
 		

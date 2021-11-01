@@ -49,10 +49,11 @@ EntrepriseRepository  entrepriseRepository ;
 
 	@Override
 	public void DepartementAEntreprise(int depId, int entrepriseId) {
-		Departement dep = departementRepository.findById((long)depId).get();
-		Entreprise en =  entrepriseRepository.findById((long)entrepriseId).get() ;
 		
-		dep.setEntreprise(en);
+		Departement dep = departementRepository.findById((long)depId).orElse(null);
+		Entreprise en =  entrepriseRepository.findById((long)entrepriseId).orElse(null) ;
+		if(dep!=null){
+		dep.setEntreprise(en);}
 		departementRepository.save(dep) ;
 	}
 	

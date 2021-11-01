@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: springBootProj
+Implementation-Version: 1.0
+Built-By: achra
+Implementation-Vendor-Id: tn.esprit
+Build-Jdk: 1.8.0_60
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springBootProj
+Created-By: Maven Integration for Eclipse
+

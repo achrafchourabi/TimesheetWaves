@@ -38,24 +38,24 @@ public class UserServiceImplTest {
 //		us.addUser(u);
 //	}
 	
-//	@Test
-//	public void testRetrieveUser() {
-//		User user = us.retrieveUser("6");
-//		assertNotNull(user.getDateNaissance());
-//		log.info("retrieveUser : " + user);
-//	}
-//	
+	@Test
+	public void testRetrieveUser() {
+		User user = us.retrieveUser("6");
+		assertNotNull(user.getDateNaissance());
+		log.info("retrieveUser : " + user);
+	}
+	
 //	@Test
 //	public void testDeleteUser() {
 //		us.deleteUser("7");
 //		
 //	}
-//	@Test
-//	public void testRetrieveAllUser() {
-//		List<User> users = us.retrieveAllUsers();
-//		log.info("retrieve all users" + users);
-//		
-//	}
+	@Test
+	public void testRetrieveAllUser() {
+		List<User> users = us.retrieveAllUsers();
+		log.info("retrieve all users" + users);
+		
+	}
 	@Test
 	public void testUpdateUSer() throws ParseException {
 
