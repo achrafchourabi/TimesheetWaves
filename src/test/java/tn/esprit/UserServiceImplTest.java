@@ -47,8 +47,8 @@ public class UserServiceImplTest {
 	
 	@Test
 	public void testDeleteUser() {
-		if(us.retrieveUser("10")!=null)
-		us.deleteUser("10");
+		if(us.retrieveUser("16")!=null)
+		us.deleteUser("16");
 		
 	}
 	@Test
