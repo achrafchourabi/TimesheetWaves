@@ -2,11 +2,11 @@ pipeline {
 
       agent any
 
-//    triggers {
+    triggers {
 
-//        cron('*/5 * * * *')
+        cron('*/5 * * * *')
 
-  //        }
+          }
 
       stages {
 
@@ -69,7 +69,7 @@ pipeline {
 
         stage("Deploiement avec Nexus") {
           steps {
-            bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=9.3 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-9.3.jar"
+            bat "mvn deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=timesheet-ci -Dversion=9.4 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/timesheet-ci-9.4.jar"
                 }
 
         }       
