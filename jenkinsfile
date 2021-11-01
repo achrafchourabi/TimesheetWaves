@@ -28,7 +28,7 @@ pipeline {
             }
         }
     }
-   stage('EmailVerification'){
+   stage("Email Notifications"){
                  steps{
                  mail bcc: '', body: '''bonjour , 
                 un build et un déploiement a été effectué , vérifiez
