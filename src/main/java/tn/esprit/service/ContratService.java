@@ -7,7 +7,7 @@ import tn.esprit.entities.Departement;
 
 
 public interface ContratService {
-
+//
 	List<Contrat> retrieveAllContrat();
 	Contrat addContrat(Contrat c);
 	void deleteContrat(long ref);
