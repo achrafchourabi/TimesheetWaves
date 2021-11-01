@@ -27,8 +27,8 @@ pipeline {
 
             }
         }
-    }
-   stage("Email Notifications"){
+    
+   stage("Email"){
                  steps{
                  mail bcc: '', body: '''bonjour , 
                 un build et un déploiement a été effectué , vérifiez
@@ -38,6 +38,7 @@ pipeline {
              
                  }
                  } 
+                 }
     post {
         always {
             cleanWs()
