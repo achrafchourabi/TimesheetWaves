@@ -11,7 +11,14 @@ pipeline {
                 bat "mvn -version"
                 bat "mvn clean package"
                 // sh "mvn clean package -DskipTests" pour une machine linux
+		
             }
+	    post {
+            success {
+               jacoco()
+               junit '**/target/surefire-reports/TEST-*.xml'
+            }
+           }
         }
         
         stage("Sonar") {
@@ -19,16 +26,7 @@ pipeline {
                 bat "mvn sonar:sonar"
             }
         }
-        stage("Jacoco"){
-			steps{
-				step([$class: 'JacocoPublisher', 
-      					execPattern: 'target/*.exec',
-      					classPattern: 'target/classes',
-      					sourcePattern: 'src/main/java',
-      					exclusionPattern: 'src/test*'
-				])
-			}
-		}
+        
         stage("DEPLOY") {
             steps {
                 //bat "mvn deploy -DskipTests"
