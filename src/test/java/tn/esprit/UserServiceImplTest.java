@@ -47,6 +47,7 @@ public class UserServiceImplTest {
 	
 	@Test
 	public void testDeleteUser() {
+		if(us!null)
 		us.deleteUser("10");
 		
 	}
